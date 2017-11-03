@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using AspNetCoreTodo.Services;
 
 namespace AspNetCoreTodo.Controllers
 {
     public class TodoController : Controller
     {
-        public IActionResult Index()
+        private readonly ITodoItemService _todoItemService;
+
+        public TodoController(ITodoItemService todoItemService) => _todoItemService = todoItemService;
+
+        public async Task<IActionResult> Index()
         {
-            // Get todo items from database
+            var todoItems = await _todoItemService.GetIncompleteItemsAsync();
 
             // Put todo items into a model
 
