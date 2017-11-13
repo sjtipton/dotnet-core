@@ -32,6 +32,9 @@ bld/
 # Visual Studio Code cache/options directory
 .vscode/
 
+# Entity Framework .Net Core DB Snapshots
+app.db
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
