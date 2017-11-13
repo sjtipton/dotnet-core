@@ -38,6 +38,14 @@ namespace AspNetCoreTodo
 
             services.AddMvc();
 
+            services
+                .AddAuthentication()
+                .AddFacebook(options =>
+                {
+                    options.AppId = Configuration["Facebook:AppId"];
+                    options.AppSecret = Configuration["Facebook:AppSecret"];
+                });
+
             services.AddScoped<ITodoItemService, TodoItemService>();
         }
 
